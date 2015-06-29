@@ -1,0 +1,14 @@
+---
+
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - debug: var="{{ item }}"
+      with_items:
+        - env
+        - service
+
+    - shell: "touch /tmp/{{ env }}-{{ service }}"
+
